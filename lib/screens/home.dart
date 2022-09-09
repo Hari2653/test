@@ -72,8 +72,12 @@ class Home extends StatelessWidget {
                                           Expanded(
                                             flex: 9,
                                             child: TextField(
-                                              onSubmitted: ((value) =>
-                                                  search.searchImage()),
+                                              onSubmitted: (value) {
+                                                search.searchImage();
+                                                FocusManager
+                                                    .instance.primaryFocus
+                                                    ?.unfocus();
+                                              },
                                               controller:
                                                   search.searchController,
                                               cursorColor: Colors.black,
@@ -113,6 +117,9 @@ class Home extends StatelessWidget {
                                                     color: Colors.white,
                                                     onPressed: () {
                                                       search.searchImage();
+                                                      FocusManager
+                                                          .instance.primaryFocus
+                                                          ?.unfocus();
                                                     },
                                                     icon: Icon(Icons
                                                         .double_arrow_outlined)),
